@@ -1,6 +1,6 @@
 import { TryCatch } from "../middlewares/error.js";
 import { ErrorHandler } from "../utils/utility.js";
-import { Chat } from "../models/Chat.js";
+import { Chat } from "../models/chat.js";
 import { deleteFilesFromClodinary, emitEvent, uploadFilesToCloudinary } from "../utils/features.js";
 import { ALERT, NEW_MESSAGE, NEW_MESSAGE_ALERT, REFETCH_CHATS } from "../constants/events.js";
 import { getOtherMember } from "../lib/helper.js";
@@ -368,6 +368,9 @@ const deleteChat = TryCatch(async(req, res, next) => {
 });
 
 
+
+
+
 const getMessages = TryCatch(async (req,res, next) => {
 
     const chatId = req.params.id;
@@ -406,6 +409,7 @@ const getMessages = TryCatch(async (req,res, next) => {
     });
 });
 
+
  
 
 export { 
@@ -419,5 +423,5 @@ export {
     getChatDetails,
     renameGroup,
     deleteChat,
-    getMessages 
+    getMessages,
 };

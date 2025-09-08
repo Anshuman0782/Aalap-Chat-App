@@ -1,4 +1,5 @@
-import express from "express";import { connectDB } from "./utils/features.js";
+import express from "express";
+import { connectDB } from "./utils/features.js";
 import dotenv from "dotenv";
 import { errorMiddleware } from "./middlewares/error.js";
 import cookieParser from "cookie-parser";
@@ -10,7 +11,7 @@ import { getSockets } from "./lib/helper.js";
 import { Message } from "./models/message.js";
 import cors from "cors"; 
 import {v2 as cloudinary} from "cloudinary";
-import { coresOptions } from "./constants/config.js";
+import { corsOptions } from "./constants/config.js";
 import { socketAuthenticator } from "./middlewares/auth.js";
 import userRoute from "./routes/user.js";
 import chatRoute from "./routes/chat.js";
@@ -45,7 +46,7 @@ cloudinary.config({
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
-    cors: coresOptions,
+    cors: corsOptions,
 });
 
 app.set("io", io);
@@ -54,7 +55,7 @@ registerTicTacToe(io);
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors(coresOptions));
+app.use(cors(corsOptions));
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/chat", chatRoute);
