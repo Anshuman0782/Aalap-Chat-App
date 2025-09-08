@@ -16,7 +16,7 @@ import { socketAuthenticator } from "./middlewares/auth.js";
 import userRoute from "./routes/user.js";
 import chatRoute from "./routes/chat.js";
 import adminRoute from "./routes/admin.js";
-import { ONLINE_USERS, STOP_TYPING } from "../client/src/constants/events.js";
+import { ONLINE_USERS, STOP_TYPING } from "./constants/events.js";
 import registerTicTacToe from "./sockets/tictactoe.js";
 
 
